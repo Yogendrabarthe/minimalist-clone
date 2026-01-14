@@ -6,228 +6,387 @@
     <title>Minimalist - Honest, Authentic & Affordable Beauty Products</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #1a1a1a; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
         
-        /* Top Banner Slider */
-        .banner-slider { background: #000; color: #fff; text-align: center; padding: 12px; font-size: 14px; font-weight: 500; overflow: hidden; }
-        .banner-text { animation: slide 15s linear infinite; }
-        @keyframes slide { 0%, 30% { opacity: 1; } 33%, 100% { opacity: 0; } }
+        /* Top Bar */
+        .top-bar { background: #f5f5f5; padding: 8px 0; font-size: 12px; text-align: center; }
         
         /* Header */
-        header { border-bottom: 1px solid #ddd; position: sticky; top: 0; background: #fff; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-        header .container { display: flex; justify-content: space-between; align-items: center; padding: 20px; }
-        .logo { font-size: 24px; font-weight: 700; letter-spacing: -0.5px; }
-        nav { display: flex; gap: 30px; }
-        nav a { text-decoration: none; color: #000; font-weight: 500; font-size: 15px; transition: color 0.3s; }
+        header { background: #fff; border-bottom: 1px solid #e5e5e5; position: sticky; top: 0; z-index: 100; }
+        .header-content { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; }
+        .logo { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
+        nav { display: flex; gap: 35px; }
+        nav a { text-decoration: none; color: #1a1a1a; font-size: 14px; font-weight: 500; transition: color 0.3s; }
         nav a:hover { color: #666; }
-        .icons { display: flex; gap: 15px; font-size: 18px; cursor: pointer; align-items: center; }
-        .icons span { position: relative; transition: transform 0.2s; }
-        .icons span:hover { transform: scale(1.1); }
-        #cart { position: absolute; top: -5px; right: -5px; background: #000; color: #fff; font-size: 10px; padding: 2px 5px; border-radius: 10px; }
+        .header-icons { display: flex; gap: 20px; align-items: center; font-size: 18px; }
+        .header-icons span { cursor: pointer; position: relative; }
+        #cart-count { position: absolute; top: -8px; right: -8px; background: #000; color: #fff; font-size: 10px; padding: 2px 6px; border-radius: 50%; }
         
-        /* Hero */
-        .hero { background: linear-gradient(135deg, #f5f5f5, #e8e8e8); padding: 80px 20px; text-align: center; }
-        .hero h2 { font-size: 48px; margin-bottom: 15px; font-weight: 700; letter-spacing: -1px; }
-        .hero p { color: #666; margin-bottom: 25px; font-size: 18px; max-width: 600px; margin-left: auto; margin-right: auto; }
-        .btn-primary { background: #000; color: #fff; border: none; padding: 16px 40px; font-size: 16px; font-weight: 600; border-radius: 4px; cursor: pointer; transition: all 0.3s; }
-        .btn-primary:hover { background: #333; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+        /* Hero Banner */
+        .hero-banner { background: linear-gradient(to right, #f8f8f8 50%, #fff 50%); padding: 60px 40px; display: flex; align-items: center; gap: 60px; }
+        .hero-text { flex: 1; }
+        .hero-text h1 { font-size: 48px; font-weight: 700; margin-bottom: 15px; line-height: 1.2; }
+        .hero-text p { color: #666; font-size: 16px; margin-bottom: 25px; line-height: 1.6; }
+        .btn-primary { background: #000; color: #fff; border: none; padding: 14px 32px; font-size: 14px; font-weight: 600; border-radius: 4px; cursor: pointer; transition: all 0.3s; }
+        .btn-primary:hover { background: #333; transform: translateY(-2px); }
+        .hero-image { flex: 1; position: relative; }
+        .hero-products { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .hero-product-card { background: #fff; padding: 20px; border-radius: 8px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        .hero-product-img { background: #f5f5f5; height: 180px; border-radius: 6px; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; color: #999; font-size: 12px; }
+        .price-tag { position: absolute; top: 10px; right: 10px; background: #fff; padding: 8px 12px; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); font-weight: 600; }
         
-        /* Sections */
-        section { padding: 80px 20px; }
-        section:nth-child(even) { background: #f8f8f8; }
-        h2.section-title { text-align: center; font-size: 36px; margin-bottom: 50px; font-weight: 700; letter-spacing: -0.5px; }
-        .section-subtitle { text-align: center; font-size: 16px; color: #666; max-width: 800px; margin: -30px auto 50px; line-height: 1.6; }
+        /* Section Styles */
+        section { padding: 80px 0; }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-title { font-size: 36px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.5px; }
+        .section-subtitle { color: #666; font-size: 16px; max-width: 700px; margin: 0 auto; }
         
-        /* Products Grid */
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; margin-bottom: 40px; }
-        .card { border: 1px solid #e5e5e5; border-radius: 8px; overflow: hidden; cursor: pointer; transition: all 0.3s; background: #fff; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
-        .img { background: #f8f8f8; height: 280px; display: flex; align-items: center; justify-content: center; color: #999; position: relative; font-size: 14px; }
-        .badge { position: absolute; top: 12px; right: 12px; background: #ff4444; color: #fff; padding: 4px 12px; border-radius: 4px; font-size: 12px; font-weight: 600; }
-        .info { padding: 20px; }
-        .info h3 { font-size: 16px; margin-bottom: 8px; font-weight: 600; line-height: 1.4; }
-        .concern { font-size: 13px; color: #666; margin-bottom: 12px; }
-        .price { display: flex; gap: 10px; align-items: center; margin-bottom: 5px; }
-        .sale { font-size: 20px; font-weight: 700; color: #000; }
-        .orig { color: #999; text-decoration: line-through; font-size: 16px; }
-        .add { width: 100%; background: #000; color: #fff; border: none; padding: 12px; border-radius: 4px; cursor: pointer; font-weight: 600; transition: background 0.3s; margin-top: 10px; }
-        .add:hover { background: #333; }
-        .view-all { text-align: center; margin-top: 40px; }
-        .btn-secondary { background: #fff; color: #000; border: 2px solid #000; padding: 14px 35px; font-size: 15px; font-weight: 600; border-radius: 4px; cursor: pointer; transition: all 0.3s; }
+        /* Product Grid */
+        .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-bottom: 40px; }
+        .product-card { background: #fff; border: 1px solid #e5e5e5; border-radius: 8px; overflow: hidden; transition: all 0.3s; cursor: pointer; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+        .product-image { background: #f8f8f8; height: 320px; position: relative; display: flex; align-items: center; justify-content: center; color: #999; }
+        .badge { position: absolute; top: 12px; right: 12px; background: #ff4444; color: #fff; padding: 5px 12px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+        .product-info { padding: 20px; }
+        .product-name { font-size: 15px; font-weight: 600; margin-bottom: 8px; line-height: 1.4; }
+        .product-rating { display: flex; gap: 3px; margin-bottom: 8px; color: #ffa500; font-size: 14px; }
+        .product-concern { font-size: 13px; color: #666; margin-bottom: 12px; }
+        .product-price { display: flex; gap: 10px; align-items: center; margin-bottom: 12px; }
+        .price-sale { font-size: 20px; font-weight: 700; }
+        .price-original { color: #999; text-decoration: line-through; font-size: 15px; }
+        .btn-add-cart { width: 100%; background: #000; color: #fff; border: none; padding: 12px; font-size: 14px; font-weight: 600; border-radius: 4px; cursor: pointer; transition: background 0.3s; }
+        .btn-add-cart:hover { background: #333; }
+        .view-all-btn { text-align: center; margin-top: 40px; }
+        .btn-secondary { background: #fff; color: #000; border: 2px solid #000; padding: 12px 32px; font-size: 14px; font-weight: 600; border-radius: 4px; cursor: pointer; transition: all 0.3s; }
         .btn-secondary:hover { background: #000; color: #fff; }
         
-        /* Categories */
-        .cat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; }
-        .cat-card { background: #f8f8f8; padding: 40px 20px; border-radius: 8px; text-align: center; cursor: pointer; transition: all 0.3s; }
-        .cat-card:hover { background: #000; color: #fff; transform: translateY(-5px); }
-        .cat-icon { font-size: 48px; margin-bottom: 15px; }
-        .cat-card h3 { font-size: 18px; font-weight: 600; }
+        /* Skin Insights */
+        .skin-insights { background: #f8f8f8; padding: 80px 0; }
+        .insights-content { display: flex; align-items: center; gap: 80px; }
+        .insights-image { flex: 1; }
+        .insights-image img { width: 100%; border-radius: 8px; }
+        .face-diagram { background: #fff; padding: 40px; border-radius: 8px; position: relative; height: 400px; display: flex; align-items: center; justify-content: center; }
+        .insights-text { flex: 1; }
+        .insights-text h2 { font-size: 42px; font-weight: 700; margin-bottom: 20px; }
+        .insights-text h2 span { color: #666; font-weight: 400; }
+        .insights-text p { color: #666; font-size: 16px; line-height: 1.7; margin-bottom: 25px; }
         
-        /* Concerns */
-        .concerns-grid { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; }
-        .concern-tag { background: #f0f0f0; padding: 12px 24px; border-radius: 25px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.3s; }
-        .concern-tag:hover { background: #000; color: #fff; }
+        /* Category Grid */
+        .category-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
+        .category-card { position: relative; border-radius: 8px; overflow: hidden; cursor: pointer; transition: transform 0.3s; height: 280px; }
+        .category-card:hover { transform: translateY(-5px); }
+        .category-image { width: 100%; height: 100%; object-fit: cover; background: linear-gradient(135deg, #f5f5f5, #e8e8e8); display: flex; align-items: center; justify-content: center; font-size: 80px; }
+        .category-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); padding: 30px 20px 20px; }
+        .category-name { color: #fff; font-size: 20px; font-weight: 600; text-align: center; }
         
-        /* Features */
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+        /* Concerns Grid */
+        .concerns-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
+        .concern-card { position: relative; border-radius: 8px; overflow: hidden; cursor: pointer; transition: transform 0.3s; height: 220px; }
+        .concern-card:hover { transform: translateY(-5px); }
+        .concern-image { width: 100%; height: 100%; background: #f5f5f5; display: flex; align-items: center; justify-content: center; }
+        .concern-label { position: absolute; bottom: 20px; left: 20px; color: #000; font-size: 16px; font-weight: 600; background: rgba(255,255,255,0.9); padding: 8px 16px; border-radius: 4px; }
+        
+        /* Features Section */
+        .features-section { background: #f8f8f8; }
+        .features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-top: 50px; }
         .feature-card { text-align: center; }
-        .feature-icon { font-size: 48px; margin-bottom: 20px; }
-        .feature-card h3 { font-size: 20px; font-weight: 600; margin-bottom: 12px; }
-        .feature-card p { font-size: 14px; color: #666; line-height: 1.6; }
+        .feature-icon { font-size: 56px; margin-bottom: 20px; }
+        .feature-title { font-size: 18px; font-weight: 600; margin-bottom: 12px; }
+        .feature-desc { color: #666; font-size: 14px; line-height: 1.6; }
         
-        /* Trust Circle & App */
-        .promo-section { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; padding: 60px 20px; text-align: center; border-radius: 12px; margin: 0 20px; }
-        .promo-section h3 { font-size: 28px; margin-bottom: 15px; }
-        .promo-section p { font-size: 16px; margin-bottom: 25px; opacity: 0.9; }
-        .btn-white { background: #fff; color: #667eea; border: none; padding: 14px 30px; font-size: 15px; font-weight: 600; border-radius: 4px; cursor: pointer; transition: all 0.3s; }
-        .btn-white:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(255,255,255,0.3); }
+        /* Testimonials */
+        .testimonials { background: #fff; }
+        .testimonial-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+        .testimonial-card { background: #f8f8f8; padding: 25px; border-radius: 8px; }
+        .testimonial-rating { color: #ffa500; margin-bottom: 12px; font-size: 16px; }
+        .testimonial-text { font-size: 14px; line-height: 1.6; margin-bottom: 15px; color: #333; }
+        .testimonial-author { font-size: 13px; font-weight: 600; color: #666; }
+        .testimonial-verified { font-size: 11px; color: #22c55e; margin-top: 5px; }
+        
+        /* Promo Boxes */
+        .promo-section { padding: 60px 0; }
+        .promo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+        .promo-box { background: #f5f5f5; border-radius: 12px; padding: 60px 40px; text-align: center; position: relative; overflow: hidden; }
+        .promo-box.trust-circle { background: linear-gradient(135deg, #fef3c7, #fde68a); }
+        .promo-box.app-download { background: linear-gradient(135deg, #e0e7ff, #c7d2fe); }
+        .promo-box h3 { font-size: 28px; font-weight: 700; margin-bottom: 15px; }
+        .promo-box p { color: #666; font-size: 15px; margin-bottom: 25px; }
+        .promo-image { margin-bottom: 20px; height: 200px; display: flex; align-items: center; justify-content: center; font-size: 80px; }
         
         /* Footer */
-        footer { background: #1a1a1a; color: #fff; padding: 60px 20px 30px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
-        .footer-col h4 { font-size: 16px; font-weight: 600; margin-bottom: 20px; }
+        footer { background: #1a1a1a; color: #fff; padding: 60px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 50px; margin-bottom: 40px; }
+        .footer-col h4 { font-size: 15px; font-weight: 600; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.5px; }
         .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col li { margin-bottom: 12px; }
         .footer-col a { color: #ccc; text-decoration: none; font-size: 14px; transition: color 0.3s; }
         .footer-col a:hover { color: #fff; }
-        .footer-col p { font-size: 14px; color: #ccc; line-height: 1.6; margin-bottom: 20px; }
-        .social-links { display: flex; gap: 15px; }
-        .social-links a { font-size: 24px; transition: transform 0.3s; }
-        .social-links a:hover { transform: scale(1.2); }
-        .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid #333; font-size: 14px; color: #999; }
+        .footer-col p { color: #ccc; font-size: 14px; line-height: 1.6; margin-bottom: 15px; }
+        .social-links { display: flex; gap: 15px; margin-top: 20px; }
+        .social-icon { width: 36px; height: 36px; background: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.3s; }
+        .social-icon:hover { background: #555; }
+        .footer-bottom { border-top: 1px solid #333; padding-top: 25px; text-align: center; }
+        .footer-bottom p { color: #999; font-size: 13px; }
         
         /* Responsive */
+        @media (max-width: 1024px) {
+            .product-grid, .category-grid, .concerns-grid { grid-template-columns: repeat(3, 1fr); }
+            .features-grid, .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
+        }
         @media (max-width: 768px) {
             nav { display: none; }
-            .hero h2 { font-size: 32px; }
-            h2.section-title { font-size: 28px; }
-            .grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; }
+            .hero-banner { flex-direction: column; }
+            .product-grid, .category-grid, .concerns-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .features-grid, .testimonial-grid, .promo-grid { grid-template-columns: 1fr; }
+            .hero-text h1 { font-size: 32px; }
+            .section-title { font-size: 28px; }
         }
     </style>
 </head>
 <body>
-    <!-- Top Banner -->
-    <div class="banner-slider">
-        <div class="banner-text">Shop for ₹799 and get a free Travel Pouch! • Trust Circle: Earn rewards on your skincare journey! • Enjoy free shipping on every order!</div>
-    </div>
+    <!-- Top Bar -->
+    <div class="top-bar">Free shipping on orders above ₹799 | Shop now and save!</div>
     
     <!-- Header -->
     <header>
-        <div class="container">
+        <div class="header-content">
             <div class="logo">Minimalist</div>
             <nav>
                 <a href="#shop">Shop</a>
-                <a href="#skin">Skin</a>
-                <a href="#hair">Hair</a>
-                <a href="#bath">Bath & Body</a>
-                <a href="#concerns">Concerns</a>
+                <a href="#bestsellers">Best Sellers</a>
+                <a href="#skin">Skin & Hair Care</a>
+                <a href="#body">Body Care</a>
+                <a href="#new">New Arrivals</a>
+                <a href="#ai">AI Skincare</a>
                 <a href="#rewards">Rewards</a>
+                <a href="#deals">Deals</a>
             </nav>
-            <div class="icons">
+            <div class="header-icons">
                 <span>🔍</span>
                 <span>👤</span>
-                <span>🛒 <b id="cart">0</b></span>
+                <span>❤️</span>
+                <span>🛒 <b id="cart-count">0</b></span>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h2>The future of personal care is here</h2>
-        <p>Embrace Minimalist, where each element is chosen for its scientific merit, offering you authentic, effective skincare solutions.</p>
-        <button class="btn-primary" onclick="scrollToProducts()">Shop Now</button>
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+        <div class="hero-text">
+            <h1>High Efficacy<br>Serums</h1>
+            <p>Discover our range of scientifically formulated serums designed to target specific skin concerns. Each product is crafted with precision for the most effective results.</p>
+            <button class="btn-primary">Shop Now</button>
+        </div>
+        <div class="hero-image">
+            <div class="price-tag">Starting at<br><strong>₹50k+</strong></div>
+            <div class="hero-products">
+                <div class="hero-product-card">
+                    <div class="hero-product-img">Serum 1</div>
+                </div>
+                <div class="hero-product-card">
+                    <div class="hero-product-img">Serum 2</div>
+                </div>
+                <div class="hero-product-card">
+                    <div class="hero-product-img">Serum 3</div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Best Sellers -->
-    <section id="shop">
+    <section id="bestsellers">
         <div class="container">
-            <h2 class="section-title">Our Best Sellers</h2>
-            <div class="grid" id="bestsellers"></div>
-            <div class="view-all">
-                <button class="btn-secondary">View All Products</button>
+            <div class="section-header">
+                <h2 class="section-title">Our Best Sellers</h2>
+            </div>
+            <div class="product-grid" id="bestsellers-grid"></div>
+            <div class="view-all-btn">
+                <button class="btn-secondary">View all products</button>
             </div>
         </div>
     </section>
 
-    <!-- Categories -->
+    <!-- Skin Insights -->
+    <section class="skin-insights">
+        <div class="container">
+            <div class="insights-content">
+                <div class="insights-image">
+                    <div class="face-diagram">
+                        <div style="font-size: 200px;">👤</div>
+                        <div style="position: absolute; top: 80px; left: 60px; font-size: 12px; background: #fff; padding: 8px 12px; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">Pigmentation</div>
+                        <div style="position: absolute; top: 140px; right: 60px; font-size: 12px; background: #fff; padding: 8px 12px; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">Dark Circles</div>
+                        <div style="position: absolute; bottom: 100px; left: 80px; font-size: 12px; background: #fff; padding: 8px 12px; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">Acne</div>
+                    </div>
+                </div>
+                <div class="insights-text">
+                    <h2>Skin<span>Insights</span></h2>
+                    <h3 style="font-size: 24px; margin-bottom: 15px;">Know Your Skin Health, Using AI</h3>
+                    <p>Upload a picture of your face, identify your skin concerns, and build a personalized skincare routine with our AI-powered skin analysis tool. Get expert recommendations tailored to your unique skin needs.</p>
+                    <button class="btn-primary">Explore</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop by Category -->
     <section id="categories">
         <div class="container">
-            <h2 class="section-title">Shop by Category</h2>
-            <div class="cat-grid">
-                <div class="cat-card"><div class="cat-icon">🧴</div><h3>Skin</h3></div>
-                <div class="cat-card"><div class="cat-icon">💇</div><h3>Hair</h3></div>
-                <div class="cat-card"><div class="cat-icon">🛁</div><h3>Bath & Body</h3></div>
-                <div class="cat-card"><div class="cat-icon">💄</div><h3>Lip</h3></div>
-                <div class="cat-card"><div class="cat-icon">👁️</div><h3>Eye</h3></div>
+            <div class="section-header">
+                <h2 class="section-title">Shop by Category</h2>
+            </div>
+            <div class="category-grid">
+                <div class="category-card">
+                    <div class="category-image">🧴</div>
+                    <div class="category-overlay">
+                        <div class="category-name">Skin Care</div>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">💇</div>
+                    <div class="category-overlay">
+                        <div class="category-name">Hair Care</div>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">🛁</div>
+                    <div class="category-overlay">
+                        <div class="category-name">Body Care</div>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">💄</div>
+                    <div class="category-overlay">
+                        <div class="category-name">Lip Care</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Concerns -->
+    <!-- Shop by Concerns -->
     <section id="concerns">
         <div class="container">
-            <h2 class="section-title">Shop by Concerns</h2>
+            <div class="section-header">
+                <h2 class="section-title">Shop by Concerns</h2>
+            </div>
             <div class="concerns-grid">
-                <div class="concern-tag">Uneven Tone</div>
-                <div class="concern-tag">Acne Control</div>
-                <div class="concern-tag">Oiliness</div>
-                <div class="concern-tag">Fine Lines / Wrinkles</div>
-                <div class="concern-tag">Dryness</div>
-                <div class="concern-tag">Hair Fall</div>
-                <div class="concern-tag">Anti-Dandruff</div>
+                <div class="concern-card">
+                    <div class="concern-image" style="background: #f4d4c8;">Concern Image</div>
+                    <div class="concern-label">Uneven Skin</div>
+                </div>
+                <div class="concern-card">
+                    <div class="concern-image" style="background: #f5c8c8;">Concern Image</div>
+                    <div class="concern-label">Acne control</div>
+                </div>
+                <div class="concern-card">
+                    <div class="concern-image" style="background: #f5e8d4;">Concern Image</div>
+                    <div class="concern-label">Dryness</div>
+                </div>
+                <div class="concern-card">
+                    <div class="concern-image" style="background: #e8f4f5;">Concern Image</div>
+                    <div class="concern-label">Dark Skin - Wrinkles</div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- New Launches -->
-    <section>
+    <section id="new" style="background: #f8f8f8;">
         <div class="container">
-            <h2 class="section-title">New Launches</h2>
-            <div class="grid" id="newlaunches"></div>
-            <div class="view-all">
-                <button class="btn-secondary">View All New Products</button>
+            <div class="section-header">
+                <h2 class="section-title">New Launches</h2>
+            </div>
+            <div class="product-grid" id="newlaunches-grid"></div>
+            <div class="view-all-btn">
+                <button class="btn-secondary">View all products</button>
             </div>
         </div>
     </section>
 
     <!-- Features -->
-    <section>
+    <section class="features-section">
         <div class="container">
-            <h2 class="section-title">The future of personal care is here</h2>
-            <p class="section-subtitle">Embrace Minimalist, where each element is chosen for its scientific merit, offering you authentic, effective skincare solutions.</p>
+            <div class="section-header">
+                <h2 class="section-title">The future of personal care is here</h2>
+                <p class="section-subtitle">Embrace Minimalist, where each element is chosen for its scientific merit, offering you authentic, effective skincare solutions.</p>
+            </div>
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">🔍</div>
-                    <h3>Transparency</h3>
-                    <p>Full disclosure of ingredients used & their concentration</p>
+                    <div class="feature-icon">🔬</div>
+                    <h3 class="feature-title">Transparency</h3>
+                    <p class="feature-desc">Full disclosure of ingredients used & their concentration</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">⚗️</div>
-                    <h3>Efficacy</h3>
-                    <p>Formulations developed in our in-house laboratories</p>
+                    <h3 class="feature-title">Efficacy</h3>
+                    <p class="feature-desc">Formulations developed in our in-house laboratories</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">💰</div>
-                    <h3>Affordable</h3>
-                    <p>Skincare, accessible to all</p>
+                    <h3 class="feature-title">Affordable</h3>
+                    <p class="feature-desc">Skincare, accessible to all</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">⭐</div>
-                    <h3>Only the best</h3>
-                    <p>Ingredients sourced from across the world</p>
+                    <div class="feature-icon">🌟</div>
+                    <h3 class="feature-title">Only the best</h3>
+                    <p class="feature-desc">Ingredients sourced from across the world</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Trust Circle Promo -->
-    <section id="rewards">
+    <!-- Testimonials -->
+    <section class="testimonials">
         <div class="container">
-            <div class="promo-section">
-                <h3>Minimalist Trust Circle</h3>
-                <p>Earn & redeem MCash on every purchase</p>
-                <button class="btn-white">Learn More</button>
+            <div class="section-header">
+                <h2 class="section-title">What Our Customers Say</h2>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"I absolutely love the Niacinamide serum! My skin has never looked better. The texture is smooth and it absorbs quickly."</p>
+                    <p class="testimonial-author">Sarah M.</p>
+                    <p class="testimonial-verified">✓ Verified Purchase</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Best sunscreen I've ever used! No white cast, lightweight, and doesn't make my skin oily. Highly recommend!"</p>
+                    <p class="testimonial-author">Priya K.</p>
+                    <p class="testimonial-verified">✓ Verified Purchase</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"The Salicylic Acid cleanser cleared my acne within weeks. Amazing product at an affordable price!"</p>
+                    <p class="testimonial-author">Rahul S.</p>
+                    <p class="testimonial-verified">✓ Verified Purchase</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Transparent ingredients, effective results. This brand has completely changed my skincare routine for the better."</p>
+                    <p class="testimonial-author">Ananya R.</p>
+                    <p class="testimonial-verified">✓ Verified Purchase</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promo Boxes -->
+    <section class="promo-section">
+        <div class="container">
+            <div class="promo-grid">
+                <div class="promo-box trust-circle">
+                    <div class="promo-image">🎁</div>
+                    <h3>Minimalist Trust Circle</h3>
+                    <p>Earn & redeem MCash on every purchase. Join our loyalty program and get exclusive rewards!</p>
+                    <button class="btn-primary">Learn More</button>
+                </div>
+                <div class="promo-box app-download">
+                    <div class="promo-image">📱</div>
+                    <h3>Download Our App</h3>
+                    <p>Get App Exclusive Discounts & Offers. Shop on the go with our mobile app!</p>
+                    <button class="btn-primary">Download Now</button>
+                </div>
             </div>
         </div>
     </section>
@@ -242,7 +401,7 @@
                         <li><a href="#">About Us</a></li>
                         <li><a href="#">Our Story</a></li>
                         <li><a href="#">Careers</a></li>
-                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Press & Media</a></li>
                         <li><a href="#">Blog</a></li>
                     </ul>
                 </div>
@@ -253,7 +412,7 @@
                         <li><a href="#">Best Sellers</a></li>
                         <li><a href="#">New Launches</a></li>
                         <li><a href="#">Rewards Program</a></li>
-                        <li><a href="#">Download App</a></li>
+                        <li><a href="#">Gift Cards</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -261,48 +420,42 @@
                     <ul>
                         <li><a href="#">Track Order</a></li>
                         <li><a href="#">Shipping Policy</a></li>
-                        <li><a href="#">Return Policy</a></li>
+                        <li><a href="#">Return & Refund</a></li>
                         <li><a href="#">FAQs</a></li>
                         <li><a href="#">Terms & Conditions</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Contact Us</h4>
-                    <p>Need help fast? Fill out our form or email help@beminimalist.co</p>
+                    <p>Need help fast? Fill out our form or email us at help@beminimalist.co</p>
                     <p>For gifting inquiries: gifting@beminimalist.co</p>
                     <div class="social-links">
-                        <a href="#">📧</a>
-                        <a href="#">📘</a>
-                        <a href="#">📷</a>
-                        <a href="#">▶️</a>
+                        <div class="social-icon">📧</div>
+                        <div class="social-icon">📘</div>
+                        <div class="social-icon">📷</div>
+                        <div class="social-icon">▶️</div>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>Copyright © 2025 Minimalist. All rights reserved.</p>
+                <p>Copyright © 2025 Minimalist. All rights reserved. | Powered by Shopify</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Best Sellers Products
         const bestsellers = [
-            { name: 'Salicylic Acid + LHA 2% Cleanser', concern: 'Acne, Breakouts & Oiliness', sale: 284, original: 299 },
-            { name: 'SPF 50 Sunscreen', concern: 'Sun protection, UV exposure / damage', sale: 379, original: 399 },
-            { name: 'Salicylic Acid 2% Face Serum', concern: 'Acne, Oily Skin, Blackheads & Irritation', sale: 237, original: 549 },
-            { name: 'Vitamin C 10% Face Serum', concern: 'Dullness, Spots & Loss of Elasticity', sale: 284, original: 299 },
-            { name: 'Niacinamide 10% Face Serum', concern: 'Acne Marks, Acne Prone & Oily Skin', sale: 237, original: 599 },
-            { name: 'Vitamin B5 10% Moisturizer', concern: 'Damaged Barrier, Oily & Dehydrated', sale: 332, original: 349 }
+            { name: 'Salicylic Acid + LHA 2% Cleanser', concern: 'Acne, Breakouts & Oiliness', sale: 284, original: 299, rating: 5 },
+            { name: 'SPF 50 Sunscreen', concern: 'Sun protection, UV exposure', sale: 379, original: 399, rating: 5 },
+            { name: 'Salicylic Acid 2% Face Serum', concern: 'Acne, Oily Skin, Blackheads', sale: 237, original: 549, rating: 5 },
+            { name: 'Vitamin C 10% Face Serum', concern: 'Dullness, Spots & Loss of Elasticity', sale: 284, original: 299, rating: 5 }
         ];
 
-        // New Launches Products
         const newLaunches = [
-            { name: 'Marula Oil 05% Cleansing Oil', concern: 'Gently remove oils and impurities', sale: 569, original: 599 },
-            { name: 'Copper Peptide + PDRN 1.25% Face Serum', concern: 'Wrinkles, Fine Lines, Damaged Barrier', sale: 664, original: 699 },
-            { name: 'B12 + Repair Complex 5.5% Face Moisturizer', concern: 'Repairs and strengthens skin barrier', sale: 379, original: 399 },
-            { name: 'Anti Dandruff Shampoo 3.5%', concern: 'Reduces Dandruff, Itchiness, Scalp Impurities', sale: 265, original: 279 },
-            { name: 'HOCL Skin Relief Spray 150 ppm', concern: 'Eczema, Acne, Redness & Damaged skin barrier', sale: 379, original: 399 },
-            { name: 'Light Fluid SPF 50 Sunscreen', concern: 'Sun protection & UV exposure / damage', sale: 474, original: 499 }
+            { name: 'Marula Oil 05% Cleansing Oil', concern: 'Gently remove oils and impurities', sale: 569, original: 599, rating: 5 },
+            { name: 'Copper Peptide + PDRN 1.25%', concern: 'Wrinkles, Fine Lines, Damaged Barrier', sale: 664, original: 699, rating: 5 },
+            { name: 'Vitamin B12 05% Cleansing Oil', concern: 'Repairs and strengthens skin barrier', sale: 379, original: 399, rating: 5 },
+            { name: 'Copper Peptide + PDRN 1.25% Face', concern: 'Anti-aging and skin repair', sale: 664, original: 699, rating: 5 }
         ];
 
         let cartCount = 0;
@@ -311,40 +464,40 @@
             const container = document.getElementById(containerId);
             products.forEach(p => {
                 const card = document.createElement('div');
-                card.className = 'card';
+                card.className = 'product-card';
                 card.innerHTML = `
-                    <div class="img">Product Image<span class="badge">Sale</span></div>
-                    <div class="info">
-                        <h3>${p.name}</h3>
-                        <p class="concern">${p.concern}</p>
-                        <div class="price">
-                            <span class="sale">₹${p.sale}</span>
-                            <span class="orig">₹${p.original}</span>
+                    <div class="product-image">
+                        Product Image
+                        <span class="badge">Sale</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">${p.name}</h3>
+                        <div class="product-rating">${'⭐'.repeat(p.rating)}</div>
+                        <p class="product-concern">${p.concern}</p>
+                        <div class="product-price">
+                            <span class="price-sale">₹${p.sale}</span>
+                            <span class="price-original">₹${p.original}</span>
                         </div>
-                        <button class="add" onclick="addToCart()">Add to Cart</button>
+                        <button class="btn-add-cart" onclick="addToCart()">Add to Cart</button>
                     </div>
                 `;
                 container.appendChild(card);
             });
         }
 
-        renderProducts(bestsellers, 'bestsellers');
-        renderProducts(newLaunches, 'newlaunches');
+        renderProducts(bestsellers, 'bestsellers-grid');
+        renderProducts(newLaunches, 'newlaunches-grid');
 
         function addToCart() {
             cartCount++;
-            document.getElementById('cart').textContent = cartCount;
+            document.getElementById('cart-count').textContent = cartCount;
             
             const notif = document.createElement('div');
             notif.textContent = '✓ Product added to cart!';
-            notif.style.cssText = 'position:fixed;top:100px;right:20px;background:#000;color:#fff;padding:15px 25px;border-radius:8px;font-weight:600;z-index:1000;animation:slideIn 0.3s';
+            notif.style.cssText = 'position:fixed;top:100px;right:20px;background:#22c55e;color:#fff;padding:15px 25px;border-radius:8px;font-weight:600;z-index:10000;box-shadow:0 4px 12px rgba(0,0,0,0.15);animation:slideIn 0.3s';
             document.body.appendChild(notif);
             
             setTimeout(() => notif.remove(), 2000);
-        }
-
-        function scrollToProducts() {
-            document.getElementById('shop').scrollIntoView({ behavior: 'smooth' });
         }
 
         const style = document.createElement('style');
